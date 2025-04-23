@@ -1,8 +1,26 @@
-# Task Manager Application : 👋
+# Just Due It 📝 — React Native Task Manager
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple, responsive task manager built with React Native using Expo. This app allows users to add, complete, view, and organize tasks by priority, with a description and due date selection — all handled via local state.
 
-## Get started
+## 📱 Features
+
+- ✅ Add new tasks with a quick input field
+- 📂 Group tasks by **priority level**: High, Medium, Low, or Unprioritized
+- 🎯 Mark tasks as complete/incomplete
+- 🗂 Expand or collapse sections to declutter views
+- 📅 Add optional **description**, **due date**, and **time**
+- 👁 Toggle visibility of completed tasks
+- 🧠 All data is stored **locally** using `expo-secure-store`
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
+- iOS Simulator or Android Emulator, or the **Expo Go app** on your phone
+
+### Setup
 
 1. Install dependencies
 
@@ -16,35 +34,13 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
     npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## 📦 Libraries Used
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+| Library                                                                                                   | Purpose                                                                             |
+| --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| [`react-native`](https://reactnative.dev/)                                                                | Base framework for building native apps using React components                      |
+| [`expo`](https://expo.dev/)                                                                               | Simplifies setup, builds, and deployment of React Native apps                       |
+| [`expo-router`](https://expo.github.io/router/)                                                           | Declarative file-based routing system for React Native navigation                   |
+| [`expo-secure-store`](https://docs.expo.dev/versions/latest/sdk/securestore/)                             | Secure local storage for persisting tasks, collapsed state, and toggle preferences  |
+| [`@react-native-community/datetimepicker`](https://github.com/react-native-datetimepicker/datetimepicker) | Native date and time picker modal components                                        |
+| [`@expo/vector-icons`](https://icons.expo.dev/)                                                           | Provides a large set of customizable icons (checkmarks, add button, ellipsis, etc.) |
