@@ -6,6 +6,7 @@ interface Props {
   onToggle: () => void;
 }
 
+// Toggle switch for showing/hiding completed tasks in the list
 export const FilterToggle = ({ value, onToggle }: Props) => (
   <View style={styles.container}>
     <Switch

@@ -12,6 +12,8 @@ interface Props {
   onChange: (value: string) => void;
 }
 
+// Renders toggle buttons to select priority: Low, Medium, High
+// Highlights selected state and allows deselecting by re-clicking
 export const PrioritySelector = ({ value, onChange }: Props) => {
   const levels = [
     { label: "Low", color: "#9db4aa", value: "low" },

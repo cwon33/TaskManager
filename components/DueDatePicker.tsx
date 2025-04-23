@@ -18,6 +18,8 @@ interface Props {
   onTimeChange: (_: any, time?: Date) => void;
 }
 
+// Displays date and time pickers for task due dates
+// Includes toggle state for modal visibility and handlers for updating state
 export const DueDatePicker = ({
   dueDate,
   showDateModal,

@@ -1,4 +1,3 @@
-// components/TaskActions.tsx
 import React from "react";
 import { View, Button, Alert, StyleSheet } from "react-native";
 
@@ -7,6 +6,7 @@ interface Props {
   onDeleteConfirmed: () => void;
 }
 
+// Provides Save and Delete buttons with confirmation modal for deletes
 export const TaskActions = ({ onSave, onDeleteConfirmed }: Props) => {
   const confirmDelete = () => {
     Alert.alert("Delete Task", "Are you sure you want to delete this task?", [

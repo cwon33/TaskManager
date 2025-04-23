@@ -19,6 +19,7 @@ import { DueDatePicker } from "@/components/DueDatePicker";
 import { TaskActions } from "@/components/TaskActions";
 
 export default function TaskDetailScreen() {
+  // Retrieve and parse the task from navigation params
   const { task } = useLocalSearchParams();
   const parsedTask = task ? JSON.parse(task as string) : {};
   const router = useRouter();
@@ -31,6 +32,7 @@ export default function TaskDetailScreen() {
   const [showDateModal, setShowDateModal] = useState(false);
   const [showTimeModal, setShowTimeModal] = useState(false);
 
+  // Save updated task to SecureStore and return to task list
   const handleSave = async () => {
     const saved = await SecureStore.getItemAsync("TASKS");
     let tasks = saved ? JSON.parse(saved) : [];
@@ -43,6 +45,7 @@ export default function TaskDetailScreen() {
     router.back();
   };
 
+  // Delete the task from SecureStore and return
   const handleDelete = async () => {
     const saved = await SecureStore.getItemAsync("TASKS");
     let tasks = saved ? JSON.parse(saved) : [];
@@ -76,6 +79,7 @@ export default function TaskDetailScreen() {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#EDEDED" }}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.container}>
+          {/* Back Button */}
           <TouchableOpacity
             onPress={() => router.back()}
             style={styles.backButton}

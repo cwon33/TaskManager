@@ -22,9 +22,10 @@ export default function TaskManager() {
   const [input, setInput] = useState("");
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
   const [showCompleted, setShowCompleted] = useState(true);
-  const { updated } = useLocalSearchParams();
+  const { updated } = useLocalSearchParams(); // used to re-trigger on return from task detail screen
   const router = useRouter();
 
+  // Load collapsed state and showCompleted toggle on mount
   useEffect(() => {
     const loadSettings = async () => {
       const show = await SecureStore.getItemAsync("SHOW_COMPLETED");
@@ -35,6 +36,7 @@ export default function TaskManager() {
     loadSettings();
   }, []);
 
+  // Load tasks from storage every time the screen refocuses (after editing a task)
   useFocusEffect(
     useCallback(() => {
       const loadTasks = async () => {
@@ -45,6 +47,7 @@ export default function TaskManager() {
     }, [updated])
   );
 
+  // Persist tasks to storage whenever they change
   useEffect(() => {
     SecureStore.setItemAsync("TASKS", JSON.stringify(tasks));
   }, [tasks]);
@@ -68,12 +71,14 @@ export default function TaskManager() {
     SecureStore.setItemAsync("SHOW_COMPLETED", updated.toString());
   };
 
+  // Toggle collapsed state of a task section
   const toggleSection = (key: string) => {
     const updated = { ...collapsed, [key]: !collapsed[key] };
     setCollapsed(updated);
     SecureStore.setItemAsync("COLLAPSED_STATE", JSON.stringify(updated));
   };
 
+  // Open task detail screen with serialized task object
   const openTaskDetails = (task: Task) => {
     router.push({
       pathname: "/task-detail",

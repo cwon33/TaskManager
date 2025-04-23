@@ -15,6 +15,7 @@ interface Props {
   onSubmit: () => void;
 }
 
+// Input field and add button for entering a new task
 export const TaskInput = ({ input, onChange, onSubmit }: Props) => {
   const handleSubmit = () => {
     if (input.trim()) {

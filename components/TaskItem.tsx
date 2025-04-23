@@ -20,20 +20,26 @@ interface Props {
   onDetails: (task: Task) => void;
 }
 
+// Single task row with completion toggle and detail link
 export const TaskItem = ({ task, onToggle, onDetails }: Props) => (
   <TouchableOpacity onPress={() => onToggle(task.id)} style={styles.taskItem}>
     <View style={styles.taskContent}>
+      {/* Completion toggle icon */}
       <Ionicons
         name={task.completed ? "checkmark-circle" : "ellipse-outline"}
         size={24}
         color={task.completed ? "#507882" : "#ccc"}
         style={styles.icon}
       />
+
+      {/* Task text */}
       <View style={styles.textContainer}>
         <Text style={[styles.text, task.completed && styles.completed]}>
           {task.text}
         </Text>
       </View>
+
+      {/* Details icon */}
       <TouchableOpacity onPress={() => onDetails(task)}>
         <Ionicons name="ellipsis-vertical" size={20} color="#888" />
       </TouchableOpacity>

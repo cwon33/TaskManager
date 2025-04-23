@@ -27,6 +27,8 @@ interface Props {
   showCompleted: boolean;
 }
 
+// Groups tasks by priority level and renders each section
+// Handles collapsing sections and rendering each task via TaskItem
 export const TaskList = ({
   tasks,
   collapsed,
@@ -35,6 +37,7 @@ export const TaskList = ({
   onDetails,
   showCompleted,
 }: Props) => {
+  // Filter out completed tasks if toggle is off
   const filtered = tasks.filter((t) => showCompleted || !t.completed);
 
   const grouped = {
@@ -44,6 +47,7 @@ export const TaskList = ({
     none: filtered.filter((t) => !t.priority),
   };
 
+  // Define the rendering order and section styles
   const sectionOrder: {
     key: keyof typeof grouped;
     label: string;
@@ -64,6 +68,7 @@ export const TaskList = ({
 
         return (
           <View key={key} style={styles.section}>
+            {/* Section header with collapse toggle */}
             <TouchableOpacity
               onPress={() => onToggleSection(key)}
               style={styles.header}
@@ -78,6 +83,7 @@ export const TaskList = ({
               />
             </TouchableOpacity>
 
+            {/* List of tasks in the section */}
             {!isCollapsed &&
               sectionTasks.map((task) => (
                 <TaskItem
