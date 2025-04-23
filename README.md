@@ -1,4 +1,4 @@
-# Just Due It 📝 — React Native Task Manager
+# Just Due It — React Native Task Manager
 
 A simple, responsive task manager built with React Native using Expo. This app allows users to add, complete, view, and organize tasks by priority, with a description and due date selection — all handled via local state.
 
@@ -12,7 +12,7 @@ A simple, responsive task manager built with React Native using Expo. This app a
 - 👁 Toggle visibility of completed tasks
 - 🧠 All data is stored **locally** using `expo-secure-store`
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -34,7 +34,7 @@ A simple, responsive task manager built with React Native using Expo. This app a
     npx expo start
    ```
 
-## 📦 Libraries Used
+## Libraries Used
 
 | Library                                                                                                   | Purpose                                                                             |
 | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
